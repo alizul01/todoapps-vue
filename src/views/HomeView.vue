@@ -1,18 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <Header />
+    <InputBox />
+    <ButtonBlock :isPrimary="true" text="Click me" />
   </div>
 </template>
 
 <script>
+import ButtonBlock from "@/components/ButtonBlock.vue";
+import Header from "@/components/Header.vue";
+import InputBox from "@/components/InputBox.vue";
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  name: "HomeView",
+  components: { ButtonBlock, Header, InputBox },
+};
 </script>
