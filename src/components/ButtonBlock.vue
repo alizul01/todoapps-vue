@@ -1,7 +1,6 @@
 <template>
   <div>
     <Button
-      @click="onclick"
       :class="{
         'bg-teal-500 text-white hover:bg-teal-600 focus:ring focus:ring-teal-200':
           this.isPrimary,
@@ -9,8 +8,8 @@
       }"
       class="p-4 rounded-lg transition-all duration-300"
     >
-      {{ text }}</Button
-    >
+      {{ text }}
+    </Button>
   </div>
 </template>
 <script>

@@ -10,6 +10,7 @@
         hover:bg-teal-800
         transition-all
         duration-300
+        rounded-b-lg
       "
     >
       <i class="fa-solid fa-clone"> </i> To do List
