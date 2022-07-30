@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Button
+    <button
+      v-on:click="showData"
       :class="{
         'bg-teal-500 text-white hover:bg-teal-600 focus:ring focus:ring-teal-200':
           this.isPrimary,
@@ -9,12 +10,12 @@
       class="p-4 rounded-lg transition-all duration-300"
     >
       {{ text }}
-    </Button>
+    </button>
   </div>
 </template>
 <script>
 export default {
-  name: "ButtonVue",
+  name: "ButtonBlock",
   props: {
     text: {
       type: String,
@@ -23,6 +24,11 @@ export default {
     isPrimary: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    showData() {
+      this.$emit("showMsg", 23);
     },
   },
 };
