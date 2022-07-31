@@ -1,7 +1,6 @@
 <template>
   <div>
     <button
-      v-on:click="showData"
       :class="{
         'bg-teal-500 text-white hover:bg-teal-600 focus:ring focus:ring-teal-200':
           this.isPrimary,
@@ -24,11 +23,6 @@ export default {
     isPrimary: {
       type: Boolean,
       default: false,
-    },
-  },
-  methods: {
-    showData() {
-      this.$emit("showMsg", 23);
     },
   },
 };

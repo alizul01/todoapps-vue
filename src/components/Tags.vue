@@ -34,11 +34,9 @@ import { ChevronDownIcon } from "@heroicons/vue/solid";
                 >
                 <div class="px-1 py-1">
                     <MenuItem @click="getTags(tag.id)" v-slot="{ active }" :key="tag.id" v-for="tag in tags">
-                        <button
-                            :class="[
-                                active ? `${tag.color} text-gray-900` : 'text-gray-900',
-                                'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                            ]"
+                        <button @click="setChoosenTag(tag.id)"
+                            :class="[active ? `${tag.color} text-gray-900` : 'text-gray-900',
+                                'group flex w-full items-center rounded-md px-2 py-2 mt-2 text-sm', tag.choosen ? 'bg-gray-100' : '']"
                             >
                             {{ tag.name }}
                         </button>
@@ -58,21 +56,25 @@ export default {
           id: 1,
           name: "Productivity",
           color: "bg-teal-200",
+          choosen: false,
         },
         {
           id: 2,
           name: "Personal",
           color: "bg-blue-200",
+          choosen: false,
         },
         {
           id: 3,
           name: "Work",
           color: "bg-orange-200",
+          choosen: false,
         },
         {
           id: 4,
           name: "Other",
           color: "bg-slate-200",
+          choosen: false,
         },
       ],
     };
@@ -80,6 +82,13 @@ export default {
   methods: {
     getTags(id) {
       this.$emit("showTags", this.tags[id - 1].name);
+    },
+    setChoosenTag(id) {
+      if (this.tags[id - 1].choosen) {
+        this.tags[id - 1].choosen = false;
+      } else {
+        this.tags[id - 1].choosen = true;
+      }
     },
   },
 };

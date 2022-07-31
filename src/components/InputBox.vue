@@ -1,10 +1,6 @@
-<script setup>
-import Tags from "./Tags.vue";
-</script>
-
 <template>
   <div class="relative mx-8">
-    <slot></slot>
+    <slot name="tags"></slot>
     <input
       type="text"
       v-model="inputValue"
@@ -23,29 +19,23 @@ import Tags from "./Tags.vue";
         focus:outline-none focus:shadow-xl focus:ring-0
       "
     />
-    <ButtonBlock
-      @showMsg="getData($event)"
-      class="absolute z-10 top-0 right-0"
-      :isPrimary="true"
-      text="Add"
-    />
+    <div @click="getInputValue">
+      <slot name="button"></slot>
+    </div>
   </div>
 </template>
 <script>
-import ButtonBlock from "@/components/ButtonBlock.vue";
-
 export default {
   name: "InputBox",
+  methods: {
+    getInputValue() {
+      this.$emit("getInputValue", this.inputValue);
+    },
+  },
   data() {
     return {
       inputValue: "",
     };
-  },
-  components: { ButtonBlock },
-  methods: {
-    printData(id) {
-      this.$emit("getTagsData", getData());
-    },
   },
 };
 </script>
