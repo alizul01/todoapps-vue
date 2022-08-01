@@ -11,6 +11,7 @@
           class="absolute z-10 top-0 right-0"
           :isPrimary="true"
           text="Add"
+          @click="addData"
         />
       </template>
     </InputBox>
@@ -18,9 +19,9 @@
       <Box
         v-for="(item, index) in ToDoList.uncompleted"
         :key="index"
-        :text="item.text"
-        :isCompleted="item.isCompleted"
         :tags="item.tags"
+        :isCompleted="item.isCompleted"
+        :text="item"
         class="mt-4"
       />
     </div>
@@ -64,16 +65,19 @@ export default {
     },
     pushToDo() {
       const value = this.inputValue;
-      console.log(value);
+      const tagsCategory = this.inputCategory;
       const newToDo = {
         id: +new Date(),
-        tags: [],
+        tags: tagsCategory,
         text: value,
         completed: false,
       };
 
       this.ToDoList.uncompleted.push(newToDo);
       this.inputValue = "";
+    },
+    addData() {
+      console.log(this.inputCategory);
     },
   },
   data() {
