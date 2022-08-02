@@ -21,7 +21,7 @@
         :key="index"
         :tags="item.tags"
         :isCompleted="item.isCompleted"
-        :text="item"
+        :text="item.text"
         class="mt-4"
       />
     </div>
@@ -68,7 +68,7 @@ export default {
       const tagsCategory = this.inputCategory;
       const newToDo = {
         id: +new Date(),
-        tags: tagsCategory,
+        tags: [] + tagsCategory + " ",
         text: value,
         completed: false,
       };

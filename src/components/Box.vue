@@ -4,10 +4,24 @@
     class="border relative border-teal-700 p-4 rounded-lg flex justify-between"
   >
     <div
-      class="bg-teal-300 w-24 text-center absolute rounded-lg -top-3.5 left-8"
+      class="
+        bg-teal-300
+        text-center
+        absolute
+        w-auto
+        rounded-lg
+        -top-3.5
+        left-8
+        px-4
+        py-0.5
+      "
     >
-      <!-- Productivity -->
-      <span v-for="(tag, index) in tags" :key="index" class="text-teal-600">
+      <span
+        v-for="(tag, index) in tags"
+        :key="index"
+        class="text-teal-800 font-semibold text-base"
+      >
+        {{ tag }}
       </span>
     </div>
     <div class="mr-4 p-2 rounded-lg">{{ date }}</div>
@@ -52,7 +66,7 @@ export default {
     },
     tags: {
       type: Array,
-      default: ["Productivity"],
+      default: [],
     },
   },
   methods: {
